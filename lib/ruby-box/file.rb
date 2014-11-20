@@ -11,6 +11,10 @@ module RubyBox
       @session.get( file_content_url )["location"]
     end
 
+    def thumbnail
+      @session.get( file_thumbnail_url )["location"]
+    end
+
     def copy_to( folder_id, name=nil )
 
       # Allow either a folder_id or a folder object
@@ -77,6 +81,10 @@ module RubyBox
     private
     def file_content_url
       "#{RubyBox::API_URL}/#{resource_name}/#{id}/content"
+    end
+
+    def file_thumbnail_url
+      "#{RubyBox::API_URL}/#{resource_name}/#{id}/thumbnail.png"
     end
     
 
