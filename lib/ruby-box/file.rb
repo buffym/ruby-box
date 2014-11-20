@@ -85,8 +85,7 @@ module RubyBox
 
     def file_thumbnail_url
       "#{RubyBox::API_URL}/#{resource_name}/#{id}/thumbnail.png"
-    end
-    
+    end 
 
     def resource_name
       'files'
