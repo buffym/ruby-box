@@ -13,7 +13,7 @@ module RubyBox
     
     # height/width must be one of the valid box formats(32, 64, 128, or 256) -- will generate a thumbnail with matching h/w
     def thumbnail( size )
-      @session.get( file_thumbnail_url(size) )
+      @session.get( file_thumbnail_url(size) )["location"]
     end
 
     def copy_to( folder_id, name=nil )
