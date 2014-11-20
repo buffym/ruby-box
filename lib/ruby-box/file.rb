@@ -14,7 +14,7 @@ module RubyBox
     def thumbnail( size )
       thumbnail_url = @session.get( file_thumbnail_url(size) )["location"]
 
-      if thumbnail_url == "STATIC"
+      if thumbnail_url == "Static"
         @session.get( file_thumbnail_url(size) )
       else 
         thumbnail_url
