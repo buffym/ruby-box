@@ -11,7 +11,7 @@ module RubyBox
       @session.get( file_content_url )["location"]
     end
     # height/width must be one of the valid box formats(32x32, 64x64, 128x128, or 256x256)
-    def thumbnail(height, width)
+    def thumbnail( height, width )
       @session.get( file_thumbnail_url(height, width) )["location"]
     end
 
