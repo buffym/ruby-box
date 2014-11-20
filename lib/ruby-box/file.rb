@@ -10,9 +10,9 @@ module RubyBox
     def download_url
       @session.get( file_content_url )["location"]
     end
-
-    def thumbnail
-      @session.get( file_thumbnail_url )["location"]
+    # height/width must be one of the valid box formats(32x32, 64x64, 128x128, or 256x256)
+    def thumbnail(height, width)
+      @session.get( file_thumbnail_url(height, width) )["location"]
     end
 
     def copy_to( folder_id, name=nil )
@@ -83,8 +83,8 @@ module RubyBox
       "#{RubyBox::API_URL}/#{resource_name}/#{id}/content"
     end
 
-    def file_thumbnail_url
-      "#{RubyBox::API_URL}/#{resource_name}/#{id}/thumbnail.png"
+    def file_thumbnail_url(height, width)
+      "#{RubyBox::API_URL}/#{resource_name}/#{id}/thumbnail.png?min_height=" + height + "&min_width=" + width
     end 
 
     def resource_name
